@@ -1,0 +1,48 @@
+Include(App.AppPath + "\\mode\\kaffa\\common.js");
+
+function cmd(cmd) {
+    var doc = App.ActiveDoc;
+    var docPath = doc.PathName;
+    if (doc.PathName.length == 0) {
+        ShowMsgBox('You should save current file with extension .go!', 'Message from EverEdit', 0);
+        doc = null;
+        return;
+    }
+    SendCommandEx("cm_file_save");
+
+    var arr = docPath.split('\\');
+    var filename = arr.pop();
+    var dir = arr.join('\\');
+    var encoding = getEncodingName(doc.Encoding);    
+    var cmdStr = '';
+    if (cmd == 'build') {
+        cmdStr = 'go build ' + docPath;
+    }
+    else if (cmd == 'run') {
+        cmdStr = 'go run ' + docPath;
+    }
+    else if (cmd == 'version') {
+        cmdStr = 'go version';
+    }
+    else if (cmd == 'env') {
+        cmdStr = 'go env';
+    }
+    else if (cmd == 'fmt') {
+        SendCommandEx("cm_file_close");
+        cmdStr = 'go fmt ' + docPath;
+    }
+    else if (cmd == 'clean') {
+        cmdStr = 'go clean';
+    }
+    var outMsg = App.GetResultFromExe(cmdStr, dir, doc.Encoding)
+
+    if (cmd == 'fmt') {
+        App.OpenDoc(docPath);
+    }
+    var out = App.OutputWindow;
+    out.Clear();
+    out.Show();
+    out.OutputText(outMsg);
+    out.SetJumpPattern("^(.*?):(\d+):", 1, 2, 0);
+    doc = null;
+}

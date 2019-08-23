@@ -1,0 +1,33 @@
+[Menu]
+Title=GO Mode
+[Menu0]
+Key=C+B
+Command0=3,Go build,${AppPath}\mode\go\build.ejs
+[Menu1]
+Key=CS+R
+Command0=3,Go run,${AppPath}\mode\go\run.ejs
+[Menu2]
+Key=CS+C
+Command0=3,Go clean,${AppPath}\mode\go\clean.ejs
+[Menu3]
+Command0=3,Go env,${AppPath}\mode\go\env.ejs
+[Menu4]
+Command0=3,Go fmt,${AppPath}\mode\go\fmt.ejs
+[Menu5]
+Command0=3,Go version,${AppPath}\mode\go\version.ejs
+[Menu6]
+SEP=Y
+[Menu7]
+Command0=2,Go Official Website,https://golang.org/
+[Menu8]
+Command0=2,Go Documentation,https://golang.org/doc/
+[Menu9]
+Command0=2,Go Packages,https://golang.org/pkg/
+[Menu10]
+Command0=2,The Go Project,https://golang.org/project/
+[Menu11]
+Command0=2,A Tour of Go,https://tour.golang.org
+[Menu12]
+Command0=2,The Go Playground,https://play.golang.org/
+[Menu13]
+Command0=2,Go source code,https://github.com/golang/go/
