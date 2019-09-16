@@ -19,7 +19,7 @@
   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
   
-  Java Mode for EverEdit
+  Go Mode for EverEdit
   ----------------------
     Written by Kaffa (kaffacoffee@outlook.com)
     Homepage: http://www.everedit.net/
@@ -102,13 +102,6 @@ function utf8ToGB2312(str) {
 function getTempFolder() {
     var shell = new ActiveXObject("WScript.Shell");
     return shell.ExpandEnvironmentStrings("%TEMP%");
-}
-
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
 function guid() {
